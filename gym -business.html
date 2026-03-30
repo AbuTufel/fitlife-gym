@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitLife Gym</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f0f0f;
+    color: white;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav h2 {
+    color: #00ffae;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00ffae;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    animation: fadeUp 1s ease;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-outline {
+    padding: 12px 25px;
+    border: 1px solid #00ffae;
+    background: transparent;
+    color: #00ffae;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: #00ffae;
+    color: black;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: 55px;
+}
+
+.hero p {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.btn {
+    padding: 12px 25px;
+    background: #00ffae;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 50px;
+}
+
+/* SERVICES */
+.service-box {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,255,174,0.2), transparent 70%);
+    top: -50%;
+    left: -50%;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,255,174,0.15);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* ABOUT */
+.about {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.about img {
+    width: 50%;
+    border-radius: 15px;
+}
+
+.about-text {
+    width: 50%;
+}
+
+/* PRICING */
+.pricing {
+    text-align: center;
+}
+
+.price-box {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.price-card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    text-align: center;
+    transition: 0.4s;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.featured {
+    transform: scale(1.1);
+    border: 1px solid #00ffae;
+    box-shadow: 0 0 30px rgba(0,255,174,0.3);
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+}
+
+.price-card:hover {
+    transform: scale(1.05);
+}
+
+/* CONTACT */
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+    .service-box, .price-box {
+        flex-direction: column;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about img, .about-text {
+        width: 100%;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>FitLife</h2>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h1>Transform Your Body Today</h1>
+        <p>
+            Build strength, confidence, and a lifestyle you’re proud of with expert coaching.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="btn">Join Now</button>
+            <button class="btn-outline">View Plans</button>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="text-align:center;">
+    <h2>Our Services</h2>
+    <p style="margin-top:10px; color:#aaa;">
+        We provide world-class fitness solutions tailored to your personal goals.
+    </p>
+
+    <div class="service-box" style="justify-content:center; margin-top:40px;">
+        
+        <div class="card">
+            <h3>Personal Training</h3>
+            <p>
+                Work one-on-one with certified trainers who guide you through 
+                customized workouts designed for maximum results.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Diet Plan</h3>
+            <p>
+                Get personalized nutrition plans that complement your training 
+                and accelerate your transformation journey.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Membership</h3>
+            <p>
+                Flexible and affordable plans that give you full access to 
+                premium equipment and facilities.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+    <div class="about-text">
+    <h2>About Us</h2>
+    <p>
+        At FitLife Gym, we believe fitness is not just about working out—it's a lifestyle. 
+        Our mission is to help individuals transform their bodies and build confidence 
+        through expert guidance and modern training techniques.
+    </p>
+    <br>
+    <p>
+        With state-of-the-art equipment, certified trainers, and a motivating environment, 
+        we ensure every member achieves their personal fitness goals efficiently and safely.
+    </p>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+    <h2>Membership Plans</h2>
+    <div class="price-box">
+        <div class="price-card">
+    <h3>Basic</h3>
+    <p class="price">₹499</p>
+    <p>/month</p>
+</div>
+
+<div class="price-card featured">
+    <h3>Standard</h3>
+    <p class="price">₹799</p>
+    <p>/month</p>
+</div>
+
+<div class="price-card">
+    <h3>Premium</h3>
+    <p class="price">₹999</p>
+    <p>/month</p>
+</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" style="text-align:center;">
+    <h2>Contact Us</h2>
+    <p style="color:#aaa; margin-bottom:20px;">
+        Ready to start your fitness journey? Get in touch with us today.
+    </p>
+
+    <div style="max-width:600px; margin:auto;">
+        <div class="contact-box">
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Tell us your goal..."></textarea>
+
+    <button class="btn">Chat on WhatsApp</button>
+</div>
+
+        <a href="https://wa.me/919692496028">
+            <button class="btn" style="margin-top:10px;">
+                Chat on WhatsApp
+            </button>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 FitLife Gym</p>
+</footer>
+
+</body>
+</html>
